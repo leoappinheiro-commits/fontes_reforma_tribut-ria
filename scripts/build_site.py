@@ -159,6 +159,7 @@ RE_CAB = re.compile(
     r"^(LIVRO|TÍTULO|CAPÍTULO|SEÇÃO|Seção|SUBSEÇÃO|Subseção)\s+"
     r"([IVXLCDM]+(?:-[A-Z])?|ÚNIC[AO]|Únic[ao])\b\s*[-–—.]?\s*(.*)$")
 RE_ANEXO = re.compile(r"^ANEXO\s+([IVXLCDM]+(?:-[A-Z])?)\b\s*[-–—.]?\s*(.*)$")
+RE_PROD = re.compile(r"\s*Produ[çc][ãa]o de efeitos\s*", re.I)
 NIVEIS = ["livro", "titulo", "capitulo", "secao", "subsecao"]
 
 
@@ -188,11 +189,28 @@ def segmentar(paras: list[str]) -> list[dict]:
             em_anexos = True
             cab.clear()
             rom = m_anx.group(1)
+            # Rótulo duplo: "ANEXO XVIII" + "(Lei Complementar nº 123...)" + "ANEXO I".
+            # O segundo "ANEXO" é a numeração na lei alterada, não um anexo novo.
+            if (atual is not None and atual["tipo"] == "anexo" and len(atual["paras"]) <= 3
+                    and not any(" | " in x for x in atual["paras"])):
+                lei = next((re.search(r"Lei Complementar n[ºo°]\s*([\d.]+).*?(\d{4})\)?\s*$", x, re.I)
+                            for x in atual["paras"] if "Lei Complementar" in x), None)
+                ref = f" da LC {lei.group(1)}/{lei.group(2)}" if lei else ""
+                atual["rotulo"] += f" (Anexo {rom}{ref})"
+                atual["paras"].append(p)
+                atual["nome"] = RE_PROD.sub("", m_anx.group(2)).strip()
+                atual["pegar_nome"] = not atual["nome"]
+                pendente = None
+                continue
             atual = nova("anexo", f"Anexo {rom}", f"anexo-{rom.lower()}")
-            atual["nome"] = m_anx.group(2).strip()
+            atual["nome"] = RE_PROD.sub("", m_anx.group(2)).strip()
+            atual["pegar_nome"] = not atual["nome"]
             atual["paras"].append(p)
             pendente = None
             continue
+        if atual is not None and atual.get("pegar_nome"):
+            atual["nome"] = p[:160]
+            atual["pegar_nome"] = False
 
         m_cab = RE_CAB.match(p)
         if m_cab and not em_anexos:
@@ -229,10 +247,6 @@ def segmentar(paras: list[str]) -> list[dict]:
             atual = nova("preambulo", "Ementa e preâmbulo", "preambulo")
         atual["paras"].append(p)
 
-    # anexos: nome costuma vir na linha seguinte
-    for u in unidades:
-        if u["tipo"] == "anexo" and not u.get("nome") and len(u["paras"]) > 1:
-            u["nome"] = u["paras"][1][:160]
     return unidades
 
 
@@ -459,11 +473,6 @@ def main() -> int:
             if len(arts) < 500:
                 aviso(f"lc214: só {len(arts)} artigos extraídos (esperado > 500)")
 
-        if os.environ.get("DEBUG_ANEXOS") and fonte["id"] == "lc214":
-            linhas = [f"{u['slug']}: " + " || ".join(p[:90] for p in u["paras"][:3]) + f" ({len(u['paras'])})"
-                      for u in unidades if u["tipo"] == "anexo"]
-            xiv = [p[:150] for u in unidades for p in u["paras"] if re.search(r"ANEXO\s+XIV", p)]
-            nota("debug anexos lc214", "\n".join(linhas) + "\nXIV: " + " || ".join(xiv))
         pasta = SAIDA / fonte["id"]
         pasta.mkdir(exist_ok=True)
         vistos: set[str] = set()

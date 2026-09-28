@@ -35,7 +35,7 @@ jobs:
           REPO="${GITHUB_REPOSITORY#*/}"
           export SITE_BASE_URL="https://${OWNER}.github.io/${REPO}"
           echo "SITE_BASE_URL=$SITE_BASE_URL"
-          DEBUG_ANEXOS=1 python scripts/build_site.py
+          python scripts/build_site.py
 
       - uses: actions/upload-pages-artifact@v3
         with:
