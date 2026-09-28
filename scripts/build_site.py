@@ -33,9 +33,21 @@ HOJE = dt.date.today()
 avisos: list[str] = []
 
 
+GHA = os.environ.get("GITHUB_ACTIONS") == "true"
+
+
 def aviso(msg: str) -> None:
     avisos.append(msg)
     print(f"[AVISO] {msg}", file=sys.stderr)
+    if GHA:
+        print(f"::warning title=Aviso do build::{msg}")
+
+
+def nota(titulo: str, msg: str) -> None:
+    """Publica um resumo como anotação do GitHub Actions (legível pela API)."""
+    if GHA:
+        msg = msg.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print(f"::notice title={titulo}::{msg}")
 
 
 # --------------------------------------------------------------------------
@@ -432,6 +444,12 @@ def main() -> int:
         # checagens de sanidade
         arts = [u for u in unidades if u["tipo"] == "artigo"]
         print(f"[{fonte['id']}] {len(unidades)} páginas ({len(arts)} de artigos)")
+        amostra = [u for u in unidades if u["slug"] in ("art-138", "art-7-a", "anexo-ix")] or unidades[:2]
+        det = "\n".join(
+            f"--- {u['slug']} | tema: {tema(u)} | ctx: {' > '.join(u['contexto'].values())}\n"
+            + "\n".join(p[:220] for p in u["paras"][:6]) for u in amostra)
+        nota(f"{fonte['id']}: {len(unidades)} páginas, {len(arts)} artigos",
+             f"primeira: {unidades[0]['slug']} | última: {unidades[-1]['slug']}\n{det}")
         if fonte["id"] == "lc214":
             slugs = {u["slug"] for u in unidades}
             for obrig in ("art-138", "art-7-a", "anexo-ix"):
