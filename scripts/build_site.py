@@ -449,7 +449,8 @@ def main() -> int:
             f"--- {u['slug']} | tema: {tema(u)} | ctx: {' > '.join(u['contexto'].values())}\n"
             + "\n".join(p[:220] for p in u["paras"][:6]) for u in amostra)
         nota(f"{fonte['id']}: {len(unidades)} páginas, {len(arts)} artigos",
-             f"primeira: {unidades[0]['slug']} | última: {unidades[-1]['slug']}\n{det}")
+             f"primeira: {unidades[0]['slug']} | última: {unidades[-1]['slug']}\n"
+             f"anexos: {', '.join(u['slug'] for u in unidades if u['tipo'] == 'anexo')}\n{det}")
         if fonte["id"] == "lc214":
             slugs = {u["slug"] for u in unidades}
             for obrig in ("art-138", "art-7-a", "anexo-ix"):

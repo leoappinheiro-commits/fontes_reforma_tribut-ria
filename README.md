@@ -27,7 +27,7 @@ Planalto, CGIBS e legisweb podem bloquear servidores do GitHub (erro 403 no log)
 
 Arquivo manual tem prioridade sobre o download. Lembre de substituí-lo quando a norma mudar.
 
-**Confira a URL do Decreto:** `fontes.json` usa a pasta `/2025/`, mas a LC 214 compilada remete ao "Decreto nº 12.955, de 2026".
+**Decreto 12.955:** é de 29/04/2026 (regulamento da CBS); a URL já aponta para a pasta /2026/ do Planalto.
 
 ## Indexação no Bing (sem isso o agente não enxerga nada)
 
@@ -43,7 +43,7 @@ Os outros links podem sair: tudo está neste site.
 
 **Trecho para a instrução**, substituindo a seção "Fontes autorizadas":
 
-> Suas fontes são as páginas de https://SEU_USUARIO.github.io/fontes-reforma, que reproduzem a LC 214/2025 (com alterações da LC 227/2026), o Decreto 12.955, as Resoluções CGIBS 6/2026 e 13/2026 e a Nota Técnica, com uma página por artigo. O título de cada página traz a norma e o número do artigo (ex.: "LC 214/2025, Art. 138: ..."). Busque sempre pelo número do artigo e pelo termo técnico. Responda exclusivamente com base no texto dos trechos recuperados. Se o trecho recuperado não contiver o dispositivo aplicável, busque novamente pelo número do artigo; se ainda assim não o localizar, informe que o dispositivo não foi recuperado e não responda com base em conhecimento próprio. Não use valores ilustrativos de alíquota que não constem das fontes.
+> Suas fontes são as páginas de https://SEU_USUARIO.github.io/fontes-reforma, que reproduzem a LC 214/2025 (com alterações da LC 227/2026), o Decreto 12.955/2026, as Resoluções CGIBS 6/2026 e 13/2026 e a Nota Técnica, com uma página por artigo. O título de cada página traz a norma e o número do artigo (ex.: "LC 214/2025, Art. 138: ..."). Busque sempre pelo número do artigo e pelo termo técnico. Responda exclusivamente com base no texto dos trechos recuperados. Se o trecho recuperado não contiver o dispositivo aplicável, busque novamente pelo número do artigo; se ainda assim não o localizar, informe que o dispositivo não foi recuperado e não responda com base em conhecimento próprio. Não use valores ilustrativos de alíquota que não constem das fontes.
 
 ## Como funciona
 
