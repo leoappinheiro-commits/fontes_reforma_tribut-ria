@@ -411,6 +411,7 @@ def indice_geral(geradas: list[tuple[dict, int]]) -> str:
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reforma tributária do consumo: legislação por artigo (IBS, CBS, IS)</title>
+<meta name="msvalidate.01" content="82CCDDA0F76C034A76A0118CC4ADAD71" />
 <meta name="description" content="LC 214/2025, LC 227/2026, Decreto 12.955, Resoluções CGIBS e Nota Técnica, com uma página por artigo.">
 <style>{CSS}</style></head>
 <body><main>
