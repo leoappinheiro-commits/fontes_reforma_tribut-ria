@@ -68,6 +68,6 @@ jobs:
         run: |
           OWNER=$(echo "${GITHUB_REPOSITORY%%/*}" | tr '[:upper:]' '[:lower:]')
           export SITE_BASE_URL="https://${OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
-          sleep 60
+          sleep 30
           pip install requests
           python scripts/indexnow.py
