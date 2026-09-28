@@ -1,0 +1,55 @@
+{
+  "indexnow_key": "7aec9edde64c4407d96e03aa55e3169a",
+  "fontes": [
+    {
+      "id": "lc214",
+      "sigla": "LC 214/2025",
+      "titulo": "Lei Complementar nº 214, de 16 de janeiro de 2025 (texto compilado, com as alterações da LC 227/2026)",
+      "tipo": "planalto_html",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm",
+      "arquivo_manual": "fontes_manuais/lc214.htm"
+    },
+    {
+      "id": "lc227",
+      "sigla": "LC 227/2026",
+      "titulo": "Lei Complementar nº 227/2026 (altera a LC 214/2025)",
+      "tipo": "planalto_html",
+      "url": "",
+      "arquivo_manual": "fontes_manuais/lc227.htm",
+      "obs": "Preencha a URL oficial no Planalto ou salve o HTML em fontes_manuais/lc227.htm"
+    },
+    {
+      "id": "decreto12955",
+      "sigla": "Decreto 12.955",
+      "titulo": "Decreto nº 12.955",
+      "tipo": "planalto_html",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12955.htm",
+      "arquivo_manual": "fontes_manuais/decreto12955.htm",
+      "obs": "CONFERIR ANO/URL: a LC 214 compilada remete ao Decreto nº 12.955, de 2026"
+    },
+    {
+      "id": "res-cgibs-6",
+      "sigla": "Resolução CGIBS 6/2026",
+      "titulo": "Resolução CGIBS nº 6, de 30 de abril de 2026 (regulamenta o IBS)",
+      "tipo": "pdf_artigos",
+      "url": "https://www.cgibs.gov.br/upload/arquivos/202604/30084927-res-cgibs-n-6-30-abr-2026-regulamenta-o-ibs.pdf",
+      "arquivo_manual": "fontes_manuais/res-cgibs-6.pdf"
+    },
+    {
+      "id": "res-cgibs-13",
+      "sigla": "Resolução CGIBS 13/2026",
+      "titulo": "Resolução CGIBS nº 13, de 22 de julho de 2026",
+      "tipo": "pdf_artigos",
+      "url": "https://www.cgibs.gov.br/upload/arquivos/202607/22121010-resolucao-cgibs-n-13-de-22-de-julho-de-2026.pdf",
+      "arquivo_manual": "fontes_manuais/res-cgibs-13.pdf"
+    },
+    {
+      "id": "nota-tecnica",
+      "sigla": "Nota Técnica",
+      "titulo": "Nota Técnica autorizada",
+      "tipo": "pdf_blocos",
+      "url": "https://www.legisweb.com.br/downloads/?id=6a71fb216860b5.04836133&raw=1",
+      "arquivo_manual": "fontes_manuais/nota-tecnica.pdf"
+    }
+  ]
+}
