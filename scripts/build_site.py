@@ -459,6 +459,15 @@ def main() -> int:
             if len(arts) < 500:
                 aviso(f"lc214: só {len(arts)} artigos extraídos (esperado > 500)")
 
+        if os.environ.get("DEBUG_ANEXOS") and fonte["id"] in ("lc214", "lc227"):
+            for u in unidades:
+                if u["tipo"] == "anexo":
+                    nota(f"debug {fonte['id']} {u['slug']}",
+                         " || ".join(p[:140] for p in u["paras"][:3]) + f" || ({len(u['paras'])} paras)")
+            for u in unidades:
+                if u["slug"] in ("anexo-xiii",):
+                    nota(f"debug {fonte['id']} {u['slug']} busca XIV",
+                         " || ".join(p[:120] for p in u["paras"] if "XIV" in p or "ANEXO" in p.upper()[:10])[:3000])
         pasta = SAIDA / fonte["id"]
         pasta.mkdir(exist_ok=True)
         vistos: set[str] = set()
