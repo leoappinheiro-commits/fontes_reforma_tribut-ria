@@ -1,5 +1,17 @@
 # Fontes da reforma tributária por artigo
 
+**Site:** [https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/)
+
+Acesso direto:
+- [LC 214/2025, índice por artigo](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/lc214/index.html)
+- [LC 214/2025, art. 138: insumos agropecuários e aquícolas](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/lc214/art-138.html)
+- [LC 214/2025, Anexo IX: insumos agropecuários e aquícolas](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/lc214/anexo-ix.html)
+- [LC 227/2026](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/lc227/index.html)
+- [Decreto 12.955/2026, Regulamento da CBS](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/decreto12955/index.html)
+- [Resolução CGIBS 6/2026, Regulamento do IBS](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/res-cgibs-6/index.html)
+- [Resolução CGIBS 13/2026](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/res-cgibs-13/index.html)
+- [Nota Técnica 2025.002-RTC](https://leoappinheiro-commits.github.io/fontes_reforma_tribut-ria/nota-tecnica/index.html)
+
 Site estático com a LC 214/2025 (compilada), LC 227/2026, Decreto 12.955, Resoluções CGIBS 6 e 13 e a Nota Técnica, com **uma página por artigo**. Serve de fonte de conhecimento para o agente do Copilot, que só lê sites públicos via Bing.
 
 O GitHub baixa as normas, gera o site, publica no GitHub Pages e avisa o Bing, sozinho, toda segunda-feira.
